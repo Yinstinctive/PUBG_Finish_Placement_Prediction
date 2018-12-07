@@ -81,20 +81,3 @@ def DNN_modeling(file_name):
 
 train = r'C:\Users\yingk\Desktop\PUBG Data\train_V2.csv'    
 dnn = DNN_modeling(train)
-      
-test = r'C:\Users\yingk\Desktop\PUBG Data\test_V2.csv'
-
-def get_test_features(file_name):
-    data = pd.read_csv(file_name)
-    # drop Id, groupId, matchId, killPoints, rankPoints, winPoints, maxPlace,winPlacePerc(target)
-    features = data.drop(['Id','groupId','matchId','killPoints','rankPoints','winPoints','maxPlace'],axis=1)
-    features = pre_processing(features)
-    return features
-
-processed_test_features = get_test_features(test)
-dnn_predictions = linear_regression.predict(processed_test_features)
-Id = pd.read_csv(test)['Id'].to_frame()
-lm_predictions = pd.Series(lm_predictions).to_frame()
-lm_predictions.columns = ['winPlacePerc']
-result = Id.join(lm_predictions)
-result.to_csv('prediction.csv',index=False)
