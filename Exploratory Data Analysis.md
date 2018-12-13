@@ -97,11 +97,11 @@
     train.plot(x='killPoints', y='winPoints', kind='scatter',figsize=(15,10))
     train['winPoints'].value_counts()
     ```
-    ![killPoints and rankPoints](https://drive.google.com/open?id=1atQpb5Dq4WCKnE4I8cuArIjFnca6hmOY)
-    ![killPoints and winPoints](https://drive.google.com/open?id=1GWx4d91XIbNmKVNyRl2hFRYE2zLZTlRD)
-    ![killPoints value counts](https://drive.google.com/open?id=1GdBi9OdkLBiUusTFp3HwDa-_zsIuFKV2)
-    ![rankPoints value counts](https://drive.google.com/open?id=1XRcHJwAMY5ycTZA3-W1Q_cStEpnKCalk)
-    ![winPoints value counts](https://drive.google.com/open?id=1FaWEPGTvhdPJ9QW63WiyWun3muzAg3NP)
+    ![killPoints and rankPoints](https://drive.google.com/open?id=1atQpb5Dq4WCKnE4I8cuArIjFnca6hmOY)<br>
+    ![killPoints and winPoints](https://drive.google.com/open?id=1GWx4d91XIbNmKVNyRl2hFRYE2zLZTlRD)<br>
+    ![killPoints value counts](https://drive.google.com/open?id=1GdBi9OdkLBiUusTFp3HwDa-_zsIuFKV2)<br>
+    ![rankPoints value counts](https://drive.google.com/open?id=1XRcHJwAMY5ycTZA3-W1Q_cStEpnKCalk)<br>
+    ![winPoints value counts](https://drive.google.com/open?id=1FaWEPGTvhdPJ9QW63WiyWun3muzAg3NP)<br>
     There are too many missing values in killPoints, rankPoints and winPoints. Therefore, not suggesting using these three features in prediction model.<br>
     ```Python
     #kills and killStreaks
