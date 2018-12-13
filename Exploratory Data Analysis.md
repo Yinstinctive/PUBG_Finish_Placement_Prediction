@@ -22,6 +22,7 @@
     The dataframe shape is: ![shape](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/shape.PNG)<br>
     Here is the head rows of the dataframe:<br>
     ![head](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/head.PNG)<br>
+    Data types:<br>
     ![info](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/info.PNG)<br>
     **Data fields**
     DBNOs - Number of enemy players knocked.<br>
@@ -60,6 +61,7 @@
     train.dropna(inplace=True)
     ```
     ![missing values](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/missing%20value.PNG)<br>
+    There is only one missing value in the entire dataset, we could simply drop it.<br>
 4. Check Correlations
     ```Python
     corr = train.corr()
@@ -68,7 +70,7 @@
     plt.show()
     ```
     ![corr_heatmap](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/corr_heatmap.png)<br>
-    Proceed to further look into the features with high correlations.<br>
+    Dark square means high correlation between features, usually 0.8 indicates a strong correlation. We could proceed to further look into the features with high correlations.<br>
     ```Python
     high_related = corr.apply(lambda value:(np.abs(value)>0.8))
     plt.figure(figsize=(12,12))
@@ -81,6 +83,7 @@
     train.plot(x='damageDealt', y='kills', kind='scatter',figsize=(15,10))
     ```
     ![damageDealt and kills](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/damage%26kills_scatter.png)<br>
+    Clear linear relation between damageDealt and kills.<br>
     ```Python
     #killPlace and kills
     train.plot(x='killPlace', y='kills', kind='scatter',figsize=(15,10))
@@ -136,4 +139,5 @@
     ```
     ![walkDistance and winPlacePerc_scatter](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/walkDistance%20and%20winPlacePerc_scatter.png)<br>
     ![walkDistance and winPlacePerc_box](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/walkDistance%20and%20winPlacePerc_box.png)<br>
+    By splitting the walkDistance into four bins, we could easily tell from the boxplot that higher walkDistance would indicate a high winPlacePerc. We could consider to separate the data according to walkDistance, and fit them into models separately since the target distributions differs a lot within the four bins.
     
