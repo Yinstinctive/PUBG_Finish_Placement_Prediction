@@ -18,9 +18,9 @@
     train.info()
     ```
     ![columns](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/columns.PNG)<br>
-    ![shape](https://drive.google.com/open?id=1aecKJcm3YJN925r_E3SMaUZy04W-vDVa)<br>
-    ![head](https://drive.google.com/open?id=1Ur7PE5ngWj1Aso8Gfjx9OdJM18NklfHq)<br>
-    ![info](https://drive.google.com/open?id=1dWdJzdrHg1T2slXPnJM5Gb9t-EtdYNoZ)<br>
+    ![shape](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/shape.PNG)<br>
+    ![head](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/head.PNG)<br>
+    ![info](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/info.PNG)<br>
     **Data fields**
     DBNOs - Number of enemy players knocked.<br>
     assists - Number of enemy players this player damaged that were killed by teammates.<br>
@@ -57,7 +57,7 @@
     train[train['winPlacePerc'].isna()]
     train.dropna(inplace=True)
     ```
-    ![missing values](https://drive.google.com/open?id=1-B4ahT2Ng5uQZBa8V77vArrYXbKWhExv)<br>
+    ![missing values](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/missing%20value.PNG)<br>
 4. Check Correlations
     ```Python
     corr = train.corr()
@@ -65,27 +65,27 @@
     sns.heatmap(corr, cmap='coolwarm',linewidths=0.5)
     plt.show()
     ```
-    ![corr_heatmap](https://drive.google.com/open?id=17a4Ix2P4bfPYBqgm61pl_AtO_1YZE7LH)<br>
+    ![corr_heatmap](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/corr_heatmap.png)<br>
     Proceed to further look into the features with high correlations.<br>
     ```Python
     high_related = corr.apply(lambda value:(np.abs(value)>0.8))
     plt.figure(figsize=(12,12))
     sns.heatmap(high_related,cbar=False, cmap='viridis',linewidths=0.5)
     ```
-    ![high_related_heatmap](https://drive.google.com/open?id=1ii4bgtHupZx-1-slM2fzfayGlFS0autG)
+    ![high_related_heatmap](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/high_related_heatmap.png)<br>
     Proceed to check the high correlated features one by one.<br>
     ```Python
     #damageDealt and kills
     train.plot(x='damageDealt', y='kills', kind='scatter',figsize=(15,10))
     ```
-    ![damageDealt and kills](https://drive.google.com/open?id=1FVmkIo6hlFdvVjMJoS_e4fJgYqJms3dd)<br>
+    ![damageDealt and kills](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/damage%26kills_scatter.png)<br>
     ```Python
     #killPlace and kills
     train.plot(x='killPlace', y='kills', kind='scatter',figsize=(15,10))
     train[(train['killPlace']<10) & (train['kills']<=1)][['kills','killPlace']]
     ```
-    ![killPlace and kills](https://drive.google.com/open?id=1fA1V9BRxGFiXiHqhvWuGwHnT7COGDzfR)<br>
-    ![killPlace and kills](https://drive.google.com/open?id=17bd76cqNCoMlBO2cgdMDqa177kwCFE_z)<br>
+    ![killPlace and kills](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/killPlace%20and%20kills.png)<br>
+    ![killPlace and kills](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/killPlace%20and%20kills2.png)<br>
     It seems there is some incosistency with killPlace and kills. There are players who kills 0 but have a high rank in killPlace. Need further investigate these two features.<br>
     ```Python
     #killPoints and rankPoints
@@ -97,22 +97,23 @@
     train.plot(x='killPoints', y='winPoints', kind='scatter',figsize=(15,10))
     train['winPoints'].value_counts()
     ```
-    ![killPoints and rankPoints](https://drive.google.com/open?id=1atQpb5Dq4WCKnE4I8cuArIjFnca6hmOY)<br>
-    ![killPoints and winPoints](https://drive.google.com/open?id=1GWx4d91XIbNmKVNyRl2hFRYE2zLZTlRD)<br>
-    ![killPoints value counts](https://drive.google.com/open?id=1GdBi9OdkLBiUusTFp3HwDa-_zsIuFKV2)<br>
-    ![rankPoints value counts](https://drive.google.com/open?id=1XRcHJwAMY5ycTZA3-W1Q_cStEpnKCalk)<br>
-    ![winPoints value counts](https://drive.google.com/open?id=1FaWEPGTvhdPJ9QW63WiyWun3muzAg3NP)<br>
+    ![killPoints and rankPoints](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/killPoints%20and%20rankPoints.png)<br>
+    ![killPoints and winPoints](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/killPoints%20and%20winPoints.png)<br>
+    ![killPoints value counts](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/killPoints_value_counts.PNG)<br>
+    ![rankPoints value counts](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/rankPoints_value_counts.PNG)<br>
+    ![killPoints and winPoints](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/killPoints%20and%20winPoints.png)<br>
+    ![winPoints value counts](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/winPoints_value_counts.PNG)<br>
     There are too many missing values in killPoints, rankPoints and winPoints. Therefore, not suggesting using these three features in prediction model.<br>
     ```Python
     #kills and killStreaks
     train.plot(x='kills', y='killStreaks', kind='scatter',figsize=(15,10))
     ```
-    ![kills and killStreaks](https://drive.google.com/open?id=13E0bnPJleq1ZtjYcY901pwbUbnEfMiBg)<br>
+    ![kills and killStreaks](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/kills%20and%20killStreaks.png)<br>
     ```Python
     #maxPlace and numGroups
     train.plot(x='maxPlace', y='numGroups', kind='scatter',figsize=(15,10))
     ```
-    ![maxPlace and numGroups](https://drive.google.com/open?id=1awz4o_n4PsDJXiVRs6jOpCc1VmwtQC3v)<br>
+    ![maxPlace and numGroups](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/maxPlace%20and%20numGroups.png)<br>
     maxPlace and numGroups are almost identical, according to data fields decription, suggest to drop maxPlace.<br>
     ```Python
     #walkDistance and winPlacePerc
@@ -131,6 +132,6 @@
     plt.figure(figsize=(15,10))
     sns.boxplot(x='walkDistBins',y='winPlacePerc',data=train,palette='rainbow',order=['0-25%','25-50%','50-75%','75-100%'])
     ```
-    ![walkDistance and winPlacePerc_scatter](https://drive.google.com/open?id=1Z7sione-utvI6jA8ynyJqvtokat_gpYi)<br>
-    ![walkDistance and winPlacePerc_box](https://drive.google.com/open?id=1awt0neA52p0QRZIh6qh4YouiDS_7dVIp)<br>
+    ![walkDistance and winPlacePerc_scatter](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/walkDistance%20and%20winPlacePerc_scatter.png)<br>
+    ![walkDistance and winPlacePerc_box](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/walkDistance%20and%20winPlacePerc_box.png)<br>
     
