@@ -17,8 +17,10 @@
     train.head()
     train.info()
     ```
+    There are 30 columns in the dataset.<br> 
     ![columns](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/columns.PNG)<br>
-    ![shape](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/shape.PNG)<br>
+    The dataframe shape is: ![shape](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/shape.PNG)<br>
+    Here is the head rows of the dataframe:<br>
     ![head](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/head.PNG)<br>
     ![info](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/info.PNG)<br>
     **Data fields**
