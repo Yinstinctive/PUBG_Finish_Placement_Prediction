@@ -17,10 +17,10 @@
     train.head()
     train.info()
     ```
-    ![columns](https://drive.google.com/open?id=1P_UAde100RPKbVm_8qI14QG0ntW0wi_h)
-    ![shape](https://drive.google.com/open?id=1aecKJcm3YJN925r_E3SMaUZy04W-vDVa)
-    ![head](https://drive.google.com/open?id=1Ur7PE5ngWj1Aso8Gfjx9OdJM18NklfHq)
-    ![info](https://drive.google.com/open?id=1dWdJzdrHg1T2slXPnJM5Gb9t-EtdYNoZ)
+    ![columns](https://drive.google.com/open?id=1P_UAde100RPKbVm_8qI14QG0ntW0wi_h)<br>
+    ![shape](https://drive.google.com/open?id=1aecKJcm3YJN925r_E3SMaUZy04W-vDVa)<br>
+    ![head](https://drive.google.com/open?id=1Ur7PE5ngWj1Aso8Gfjx9OdJM18NklfHq)<br>
+    ![info](https://drive.google.com/open?id=1dWdJzdrHg1T2slXPnJM5Gb9t-EtdYNoZ)<br>
     **Data fields**
     DBNOs - Number of enemy players knocked.<br>
     assists - Number of enemy players this player damaged that were killed by teammates.<br>
@@ -57,7 +57,7 @@
     train[train['winPlacePerc'].isna()]
     train.dropna(inplace=True)
     ```
-    ![missing values](https://drive.google.com/open?id=1-B4ahT2Ng5uQZBa8V77vArrYXbKWhExv)
+    ![missing values](https://drive.google.com/open?id=1-B4ahT2Ng5uQZBa8V77vArrYXbKWhExv)<br>
 4. Check Correlations
     ```Python
     corr = train.corr()
@@ -65,7 +65,7 @@
     sns.heatmap(corr, cmap='coolwarm',linewidths=0.5)
     plt.show()
     ```
-    ![corr_heatmap](https://drive.google.com/open?id=17a4Ix2P4bfPYBqgm61pl_AtO_1YZE7LH)
+    ![corr_heatmap](https://drive.google.com/open?id=17a4Ix2P4bfPYBqgm61pl_AtO_1YZE7LH)<br>
     Proceed to further look into the features with high correlations.<br>
     ```Python
     high_related = corr.apply(lambda value:(np.abs(value)>0.8))
@@ -78,14 +78,14 @@
     #damageDealt and kills
     train.plot(x='damageDealt', y='kills', kind='scatter',figsize=(15,10))
     ```
-    ![damageDealt and kills](https://drive.google.com/open?id=1FVmkIo6hlFdvVjMJoS_e4fJgYqJms3dd)
+    ![damageDealt and kills](https://drive.google.com/open?id=1FVmkIo6hlFdvVjMJoS_e4fJgYqJms3dd)<br>
     ```Python
     #killPlace and kills
     train.plot(x='killPlace', y='kills', kind='scatter',figsize=(15,10))
     train[(train['killPlace']<10) & (train['kills']<=1)][['kills','killPlace']]
     ```
-    ![killPlace and kills](https://drive.google.com/open?id=1fA1V9BRxGFiXiHqhvWuGwHnT7COGDzfR)
-    ![killPlace and kills](https://drive.google.com/open?id=17bd76cqNCoMlBO2cgdMDqa177kwCFE_z)
+    ![killPlace and kills](https://drive.google.com/open?id=1fA1V9BRxGFiXiHqhvWuGwHnT7COGDzfR)<br>
+    ![killPlace and kills](https://drive.google.com/open?id=17bd76cqNCoMlBO2cgdMDqa177kwCFE_z)<br>
     It seems there is some incosistency with killPlace and kills. There are players who kills 0 but have a high rank in killPlace. Need further investigate these two features.<br>
     ```Python
     #killPoints and rankPoints
@@ -107,12 +107,12 @@
     #kills and killStreaks
     train.plot(x='kills', y='killStreaks', kind='scatter',figsize=(15,10))
     ```
-    ![kills and killStreaks](https://drive.google.com/open?id=13E0bnPJleq1ZtjYcY901pwbUbnEfMiBg)
+    ![kills and killStreaks](https://drive.google.com/open?id=13E0bnPJleq1ZtjYcY901pwbUbnEfMiBg)<br>
     ```Python
     #maxPlace and numGroups
     train.plot(x='maxPlace', y='numGroups', kind='scatter',figsize=(15,10))
     ```
-    ![maxPlace and numGroups](https://drive.google.com/open?id=1awz4o_n4PsDJXiVRs6jOpCc1VmwtQC3v)
+    ![maxPlace and numGroups](https://drive.google.com/open?id=1awz4o_n4PsDJXiVRs6jOpCc1VmwtQC3v)<br>
     maxPlace and numGroups are almost identical, according to data fields decription, suggest to drop maxPlace.<br>
     ```Python
     #walkDistance and winPlacePerc
@@ -131,6 +131,6 @@
     plt.figure(figsize=(15,10))
     sns.boxplot(x='walkDistBins',y='winPlacePerc',data=train,palette='rainbow',order=['0-25%','25-50%','50-75%','75-100%'])
     ```
-    ![walkDistance and winPlacePerc_scatter](https://drive.google.com/open?id=1Z7sione-utvI6jA8ynyJqvtokat_gpYi)
-    ![walkDistance and winPlacePerc_box](https://drive.google.com/open?id=1awt0neA52p0QRZIh6qh4YouiDS_7dVIp)
+    ![walkDistance and winPlacePerc_scatter](https://drive.google.com/open?id=1Z7sione-utvI6jA8ynyJqvtokat_gpYi)<br>
+    ![walkDistance and winPlacePerc_box](https://drive.google.com/open?id=1awt0neA52p0QRZIh6qh4YouiDS_7dVIp)<br>
     
