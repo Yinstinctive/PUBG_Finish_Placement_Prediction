@@ -17,7 +17,7 @@
     train.head()
     train.info()
     ```
-    ![columns](https://drive.google.com/open?id=1P_UAde100RPKbVm_8qI14QG0ntW0wi_h)<br>
+    ![columns](https://github.com/Yinstinctive/PUBG_Finish_Placement_Prediction/blob/master/EDA_Images/columns.PNG)<br>
     ![shape](https://drive.google.com/open?id=1aecKJcm3YJN925r_E3SMaUZy04W-vDVa)<br>
     ![head](https://drive.google.com/open?id=1Ur7PE5ngWj1Aso8Gfjx9OdJM18NklfHq)<br>
     ![info](https://drive.google.com/open?id=1dWdJzdrHg1T2slXPnJM5Gb9t-EtdYNoZ)<br>
